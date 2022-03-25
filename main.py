@@ -10,4 +10,4 @@ def index():
     return render_template('index.html', title='Parking Alerts')
 
 
-app.run(host='0.0.0.0', port=8040)
+app.run(port=8044)
