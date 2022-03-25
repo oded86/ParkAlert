@@ -3,6 +3,12 @@
             <title>{{ title }}</title>
     </head>
     <body>
+        <form method="post">
+            <input type="file" accept="image/*" capture="camera" />
+            <input type="hidden" id="lat" name="lat" value="">
+            <input type="hidden" id="lon" name="lon" value="">
+        </form>
+
         <p id="demo"></p>
         <script>
         var x = document.getElementById("demo");
@@ -18,6 +24,8 @@
         function showPosition(position) {
           x.innerHTML = "Latitude: " + position.coords.latitude +
           "<br>Longitude: " + position.coords.longitude;
+          document.getElementById("lat") = position.coords.latitude;
+          document.getElementById("lon") = position.coords.longitude;
         }
 
         function showError(error) {
