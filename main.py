@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='PArking Alerts')
+    return render_template('index.html', title='Parking Alerts')
 
 
 app.run(host='0.0.0.0', port=8040)
