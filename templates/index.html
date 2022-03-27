@@ -3,8 +3,21 @@
             <title>{{ title }}</title>
     </head>
     <body>
-        <form method="post">
-            <input type="file" accept="image/*" capture="camera" />
+        <h2>Select a file to upload</h2>
+
+        {% if filename %}
+                <div>
+                        <img src="{{ url_for('static', filename='/uploads/'+filename) }}">
+                </div>
+        {% endif %}
+        <form method="post" action="/" enctype="multipart/form-data">
+                <p>
+                        <input type="file" name="file" autocomplete="off" required>
+                </p>
+                <p>
+                        <input type="submit" value="Submit">
+                </p>
+
             <input type="hidden" id="lat" name="lat" value="">
             <input type="hidden" id="lon" name="lon" value="">
         </form>
@@ -44,11 +57,7 @@
               break;
           }
         }
+        getLocation()
         </script>
-        <p>Click the button to get your coordinates.</p>
-
-        <button onclick="getLocation()">Try It</button>
-
-
     </body>
 </html>
