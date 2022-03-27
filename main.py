@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, url_for
 import os
 from werkzeug.utils import secure_filename
 
@@ -20,8 +20,8 @@ def upload_image():
             print("Image must have a file name")
             return redirect(request.url)
 
-        filename = secure_filename(image.filename)
-
+        #filename = secure_filename(image.filename)
+        filename = image.filename
         basedir = os.path.abspath(os.path.dirname(__file__))
         image.save(os.path.join(basedir, app.config["IMAGE_UPLOADS"], filename))
 
